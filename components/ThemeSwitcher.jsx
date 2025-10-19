@@ -9,13 +9,10 @@ export default function ThemeSwitcher() {
 
   useEffect(() => {
     setIsClient(true);
-    const savedTheme = localStorage.getItem("theme");
-    const systemDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const initialTheme = savedTheme || (systemDark ? "dark" : "light");
-    setTheme(initialTheme);
-    document.documentElement.classList.toggle("dark", initialTheme === "dark");
+    // Read the current theme from the DOM instead of setting it
+    const isDark = document.documentElement.classList.contains("dark");
+    const currentTheme = isDark ? "dark" : "light";
+    setTheme(currentTheme);
   }, []);
 
   const themeToggleHandler = () => {
