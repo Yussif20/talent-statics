@@ -87,6 +87,12 @@
     "statistics": "Statistics"
   },
 
+  "Switch": {
+    "label": "Switch Language",
+    "toEnglish": "English",
+    "toArabic": "العربية"
+  },
+
   "Footer": {
     "companyDescription": "TalentBridge - Supporting twice-exceptional students through comprehensive assessment and individualized planning.",
     "quickLinks": "Quick Links",

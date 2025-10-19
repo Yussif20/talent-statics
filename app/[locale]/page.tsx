@@ -10,6 +10,11 @@ import ErrorState from "@/components/statistics/ErrorState";
 import StatsCard from "@/components/statistics/StatsCard";
 import ExportButton from "@/components/statistics/ExportButton";
 import DateRangeFilter from "@/components/statistics/DateRangeFilter";
+import GeneralStats from "@/components/statistics/GeneralStats";
+import CategoryDistribution from "@/components/statistics/CategoryDistribution";
+import DisabilityBreakdown from "@/components/statistics/DisabilityBreakdown";
+import DemographicsCharts from "@/components/statistics/DemographicsCharts";
+import AgeDistribution from "@/components/statistics/AgeDistribution";
 
 export default function StatisticsPage() {
   const locale = useLocale();
@@ -129,15 +134,22 @@ export default function StatisticsPage() {
           />
         </div>
 
-        {/* Charts Section - Placeholder */}
-        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-lg text-center">
-          <BarChart3 className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-            Charts Coming Soon
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300">
-            Phase 3 will add interactive charts for detailed data visualization
-          </p>
+        {/* Charts Section */}
+        <div className="space-y-8">
+          {/* General Stats and Category Distribution */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <GeneralStats data={data} />
+            <CategoryDistribution data={data} />
+          </div>
+
+          {/* Disability Breakdown - Full Width */}
+          <DisabilityBreakdown data={data} />
+
+          {/* Demographics and Age Distribution */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <DemographicsCharts data={data} />
+            <AgeDistribution data={data} />
+          </div>
         </div>
       </div>
     </div>

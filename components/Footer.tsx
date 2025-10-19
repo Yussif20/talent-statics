@@ -8,12 +8,12 @@ export default function Footer() {
   const footer = t;
   const locale = useLocale();
 
-  const quickLinks = [
-    { name: footer("home"), href: `/${locale}` },
-    { name: footer("teacherForm"), href: `/${locale}/teacher-form` },
-    { name: footer("parentForm"), href: `/${locale}/parent-form` },
-    { name: footer("about"), href: `/${locale}/about` },
-  ];
+  // const quickLinks = [
+  //   { name: footer("home"), href: `/${locale}` },
+  //   { name: footer("teacherForm"), href: `/${locale}/teacher-form` },
+  //   { name: footer("parentForm"), href: `/${locale}/parent-form` },
+  //   { name: footer("about"), href: `/${locale}/about` },
+  // ];
 
   return (
     <footer className="footer-force-dark-text bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
               {footer("quickLinks")}
             </h3>
@@ -89,7 +89,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Info */}
           <div>

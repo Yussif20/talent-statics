@@ -87,6 +87,12 @@
     "statistics": "الإحصائيات"
   },
 
+  "Switch": {
+    "label": "تبديل اللغة",
+    "toEnglish": "English",
+    "toArabic": "العربية"
+  },
+
   "Footer": {
     "companyDescription": "جسر المواهب - دعم الطلاب مزدوجي الاستثنائية من خلال التقييم الشامل والتخطيط الفردي.",
     "quickLinks": "روابط سريعة",

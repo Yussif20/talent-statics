@@ -48,13 +48,13 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="flex-1 flex justify-center items-center">
+            {/* <div className="flex-1 flex justify-center items-center">
               <Navigation />
-            </div>
+            </div> */}
 
             {/* Right side controls */}
             <div className="flex items-center gap-4 relative">
-              <MobileNavigation />
+              {/* <MobileNavigation /> */}
               {/* Settings Icon */}
               <div ref={settingsRef} className="relative">
                 <button
