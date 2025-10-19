@@ -5,16 +5,16 @@ const API_BASE_URL = "https://virilan362-001-site1.rtempurl.com/api/Reports";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const startDate = searchParams.get("startDate");
-    const endDate = searchParams.get("endDate");
+    const fromDate = searchParams.get("fromDate");
+    const toDate = searchParams.get("toDate");
 
     let url = `${API_BASE_URL}/summary`;
 
     // Add date filters if provided
-    if (startDate && endDate) {
+    if (fromDate && toDate) {
       const params = new URLSearchParams({
-        startDate,
-        endDate,
+        fromDate,
+        toDate,
       });
       url += `?${params.toString()}`;
     }

@@ -13,8 +13,8 @@ export async function fetchStatistics(
     // Add date filters if provided
     if (startDate && endDate) {
       const params = new URLSearchParams({
-        startDate,
-        endDate,
+        fromDate: startDate,
+        toDate: endDate,
       });
       url += `?${params.toString()}`;
     }
@@ -54,8 +54,8 @@ export async function downloadExcelReport(
     // Add date filters if provided
     if (startDate && endDate) {
       const params = new URLSearchParams({
-        startDate,
-        endDate,
+        fromDate: startDate,
+        toDate: endDate,
       });
       url += `?${params.toString()}`;
     }
