@@ -58,9 +58,7 @@ export default function DualExceptionalDisabilities({
         value,
       };
     })
-    .sort((a, b) => b.value - a.value)
-    .slice(0, 10);
-
+    .sort((a, b) => b.value - a.value);
   return (
     <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
       <div className="mb-6">
