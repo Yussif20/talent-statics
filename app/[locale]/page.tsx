@@ -13,6 +13,7 @@ import DateRangeFilter from "@/components/statistics/DateRangeFilter";
 import GeneralStats from "@/components/statistics/GeneralStats";
 import CategoryDistribution from "@/components/statistics/CategoryDistribution";
 import DisabilityBreakdown from "@/components/statistics/DisabilityBreakdown";
+import DualExceptionalDisabilities from "@/components/statistics/DualExceptionalDisabilities";
 import DemographicsCharts from "@/components/statistics/DemographicsCharts";
 import AgeDistribution from "@/components/statistics/AgeDistribution";
 
@@ -142,8 +143,9 @@ export default function StatisticsPage() {
             <CategoryDistribution data={data} />
           </div>
 
-          {/* Disability Breakdown - Full Width */}
+          {/* Disability Breakdowns - Full Width */}
           <DisabilityBreakdown data={data} />
+          <DualExceptionalDisabilities data={data} />
 
           {/* Demographics and Age Distribution */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

@@ -75,7 +75,8 @@
     },
 
     "mostCommon": "الإعاقة الأكثر شيوعاً",
-    "topDisabilities": "أكثر 10 أنواع إعاقة",
+    "topDisabilities": "أكثر 10 أنواع إعاقة (بين ذوي الإعاقة)",
+    "topDisabilitiesDualExceptional": "أكثر 10 أنواع إعاقة (بين مزدوجي الاستثنائية)",
     "chartLabels": {
       "count": "العدد",
       "percentage": "النسبة المئوية",

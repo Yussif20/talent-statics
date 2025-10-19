@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Cell,
 } from "recharts";
 import type { StatisticsResponse } from "@/types/statistics";
 import { getChartColors, getTooltipStyle } from "@/lib/chartConfig";
@@ -92,7 +93,7 @@ export default function CategoryDistribution({
           <Tooltip contentStyle={getTooltipStyle(isDark)} />
           <Bar dataKey="value" radius={[8, 8, 0, 0]}>
             {categoryData.map((entry, index) => (
-              <Bar key={`bar-${index}`} dataKey="value" fill={entry.color} />
+              <Cell key={`cell-${index}`} fill={entry.color} />
             ))}
           </Bar>
         </BarChart>

@@ -75,7 +75,8 @@
     },
 
     "mostCommon": "Most Common Disability",
-    "topDisabilities": "Top 10 Disability Types",
+    "topDisabilities": "Top 10 Disability Types (Among Disabled)",
+    "topDisabilitiesDualExceptional": "Top 10 Disability Types (Among Dual Exceptional)",
     "chartLabels": {
       "count": "Count",
       "percentage": "Percentage",
