@@ -86,7 +86,6 @@ export default function DisabilityBreakdown({
           <YAxis
             type="category"
             dataKey="name"
-            width={150}
             stroke={colors.text}
             tick={{ fill: colors.text, fontSize: 11 }}
           />

@@ -101,11 +101,7 @@ export default function GeneralStats({ data }: GeneralStatsProps) {
               />
             ))}
           </Pie>
-          <Tooltip
-            contentStyle={{
-              ...getTooltipStyle(isDark),
-            }}
-          />
+          <Tooltip contentStyle={getTooltipStyle(isDark)} />
           <Legend
             wrapperStyle={{
               paddingTop: "20px",

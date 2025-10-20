@@ -76,7 +76,7 @@ export default function AgeDistribution({ data }: AgeDistributionProps) {
             verticalAlign="middle"
             align="right"
             wrapperStyle={{
-              paddingLeft: "20px",
+              paddingLeft: "40px",
             }}
           />
           <Tooltip contentStyle={getTooltipStyle(isDark)} />

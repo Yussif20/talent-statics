@@ -48,15 +48,17 @@ export const getChartColors = (isDark: boolean): ChartColors => ({
  */
 export const getTooltipStyle = (isDark: boolean) => ({
   backgroundColor: isDark
-    ? "rgba(17, 24, 39, 0.95)"
-    : "rgba(255, 255, 255, 0.95)",
-  border: `1px solid ${isDark ? "#374151" : "#d1d5db"}`,
+    ? "rgba(31, 41, 55, 0.98)"
+    : "rgba(255, 255, 255, 0.98)",
+  border: `1px solid ${isDark ? "#4b5563" : "#d1d5db"}`,
   borderRadius: "12px",
-  color: isDark ? "#f3f4f6" : "#111827",
-  padding: "12px",
+  color: isDark ? "#f9fafb" : "#111827",
+  padding: "12px 16px",
+  fontSize: "14px",
+  fontWeight: "500",
   boxShadow: isDark
-    ? "0 4px 6px -1px rgba(0, 0, 0, 0.3)"
-    : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+    ? "0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3)"
+    : "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
 });
 
 /**
