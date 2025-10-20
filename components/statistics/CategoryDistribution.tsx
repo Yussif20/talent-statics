@@ -84,10 +84,9 @@ export default function CategoryDistribution({
           <XAxis
             dataKey="name"
             stroke={colors.text}
-            tick={{ fill: colors.text, fontSize: 12 }}
-            angle={-15}
-            textAnchor="end"
-            height={80}
+            tick={{ fill: colors.text, fontSize: 11 }}
+            height={70}
+            interval={0}
           />
           <YAxis stroke={colors.text} tick={{ fill: colors.text }} />
           <Tooltip contentStyle={getTooltipStyle(isDark)} />
