@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   BarChart,
   Bar,
@@ -22,6 +22,7 @@ export default function DisabilityBreakdown({
   data,
 }: DisabilityBreakdownProps) {
   const t = useTranslations("Statistics");
+  const locale = useLocale();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -88,6 +89,8 @@ export default function DisabilityBreakdown({
             dataKey="name"
             stroke={colors.text}
             tick={{ fill: colors.text, fontSize: 11 }}
+            width={100}
+            dx={locale === "ar" ? -75 : 0}
           />
           <Tooltip contentStyle={getTooltipStyle(isDark)} />
           <Bar dataKey="value" fill={colors.success} radius={[0, 8, 8, 0]} />
