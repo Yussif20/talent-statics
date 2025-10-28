@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   PieChart,
   Pie,
@@ -20,6 +20,7 @@ interface SatisfactionChartProps {
 
 export default function SatisfactionChart({ data }: SatisfactionChartProps) {
   const t = useTranslations("Statistics");
+  const locale = useLocale();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -81,7 +82,8 @@ export default function SatisfactionChart({ data }: SatisfactionChartProps) {
       return null;
     }
 
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.2;
+    const radius =
+      innerRadius + (outerRadius - innerRadius) * (locale === "ar" ? 0.7 : 0.1);
     const x = cx + radius * Math.cos(-midAngle * (Math.PI / 180));
     const y = cy + radius * Math.sin(-midAngle * (Math.PI / 180));
 
