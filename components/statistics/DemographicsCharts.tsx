@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   BarChart,
   Bar,
@@ -21,6 +21,7 @@ interface DemographicsChartsProps {
 
 export default function DemographicsCharts({ data }: DemographicsChartsProps) {
   const t = useTranslations("Statistics");
+  const locale = useLocale();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -79,7 +80,12 @@ export default function DemographicsCharts({ data }: DemographicsChartsProps) {
             stroke={colors.text}
             tick={{ fill: colors.text }}
           />
-          <YAxis stroke={colors.text} tick={{ fill: colors.text }} />
+          <YAxis
+            stroke={colors.text}
+            tick={{ fill: colors.text }}
+            width={30}
+            dx={locale === "ar" ? -20 : 0}
+          />
           <Tooltip contentStyle={getTooltipStyle(isDark)} />
           <Legend />
           <Bar
