@@ -79,7 +79,11 @@ export default function AgeDistribution({ data }: AgeDistributionProps) {
               paddingLeft: "40px",
             }}
           />
-          <Tooltip contentStyle={getTooltipStyle(isDark)} />
+          <Tooltip
+            contentStyle={getTooltipStyle(isDark)}
+            itemStyle={{ color: isDark ? "#f9fafb" : "#111827" }}
+            labelStyle={{ color: isDark ? "#f9fafb" : "#111827" }}
+          />
         </RadialBarChart>
       </ResponsiveContainer>
 

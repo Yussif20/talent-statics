@@ -81,7 +81,7 @@ export default function SatisfactionChart({ data }: SatisfactionChartProps) {
       return null;
     }
 
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.12;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.2;
     const x = cx + radius * Math.cos(-midAngle * (Math.PI / 180));
     const y = cy + radius * Math.sin(-midAngle * (Math.PI / 180));
 
@@ -131,6 +131,8 @@ export default function SatisfactionChart({ data }: SatisfactionChartProps) {
             </Pie>
             <Tooltip
               contentStyle={getTooltipStyle(isDark)}
+              itemStyle={{ color: isDark ? "#f9fafb" : "#111827" }}
+              labelStyle={{ color: isDark ? "#f9fafb" : "#111827" }}
               formatter={(value: number) => [value, t("chartLabels.count")]}
             />
             <Legend

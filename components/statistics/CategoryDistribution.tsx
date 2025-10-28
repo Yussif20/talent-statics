@@ -89,7 +89,11 @@ export default function CategoryDistribution({
             interval={0}
           />
           <YAxis stroke={colors.text} tick={{ fill: colors.text }} />
-          <Tooltip contentStyle={getTooltipStyle(isDark)} />
+          <Tooltip
+            contentStyle={getTooltipStyle(isDark)}
+            itemStyle={{ color: isDark ? "#f9fafb" : "#111827" }}
+            labelStyle={{ color: isDark ? "#f9fafb" : "#111827" }}
+          />
           <Bar dataKey="value" radius={[8, 8, 0, 0]}>
             {categoryData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />

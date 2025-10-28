@@ -50,9 +50,7 @@ export default function DualExceptionalDisabilities({
   )
     .map(([name, value]) => {
       // Normalize the key by replacing spaces with dashes and removing trailing/leading dashes
-      const normalizedKey = name
-        .replace(/\s+/g, "-")
-        .replace(/^-+|-+$/g, "");
+      const normalizedKey = name.replace(/\s+/g, "-").replace(/^-+|-+$/g, "");
       const translatedName = t(`disabilityTypes.${normalizedKey}`);
 
       return {
