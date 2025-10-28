@@ -52,6 +52,26 @@ export interface StatisticsResponse {
     averageTalentPercent: number;
     averageDisabilityPercent: number;
   };
+  satisfaction: {
+    averageSatisfaction: number;
+    satisfactionDistribution: Record<string, number>;
+    satisfactionBySurveyType: {
+      Parents: Record<string, number>;
+      Teachers: Record<string, number>;
+    };
+    satisfactionByGender: {
+      female: Record<string, number>;
+      male: Record<string, number>;
+    };
+    satisfactionByTalentStatus: {
+      "Not Talented": Record<string, number>;
+      Talented: Record<string, number>;
+    };
+    satisfactionByDisabilityStatus: {
+      Disabled: Record<string, number>;
+      "Not Disabled": Record<string, number>;
+    };
+  };
   detailed: {
     mostCommonDisabilityType: string;
     mostCommonDisabilityCount: number;

@@ -49,8 +49,10 @@ export default function DualExceptionalDisabilities({
     data.talentDisability.disabilityTypesAmongDualExceptional
   )
     .map(([name, value]) => {
-      // Normalize the key by replacing spaces with dashes for translation lookup
-      const normalizedKey = name.replace(/\s+/g, "-");
+      // Normalize the key by replacing spaces with dashes and removing trailing/leading dashes
+      const normalizedKey = name
+        .replace(/\s+/g, "-")
+        .replace(/^-+|-+$/g, "");
       const translatedName = t(`disabilityTypes.${normalizedKey}`);
 
       return {

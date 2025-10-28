@@ -69,7 +69,7 @@ export default function CategoryDistribution({
   ];
 
   return (
-    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 dark:text-white shadow-lg">
       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
         {t("sections.categories")}
       </h3>

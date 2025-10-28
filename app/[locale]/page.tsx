@@ -16,6 +16,7 @@ import DisabilityBreakdown from "@/components/statistics/DisabilityBreakdown";
 import DualExceptionalDisabilities from "@/components/statistics/DualExceptionalDisabilities";
 import DemographicsCharts from "@/components/statistics/DemographicsCharts";
 import AgeDistribution from "@/components/statistics/AgeDistribution";
+import SatisfactionChart from "@/components/statistics/SatisfactionChart";
 
 export default function StatisticsPage() {
   const locale = useLocale();
@@ -137,11 +138,14 @@ export default function StatisticsPage() {
 
         {/* Charts Section */}
         <div className="space-y-8">
-          {/* General Stats and Category Distribution */}
+          {/* General Stats and Satisfaction */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <GeneralStats data={data} />
-            <CategoryDistribution data={data} />
+            <SatisfactionChart data={data} />
           </div>
+
+          {/* Category Distribution - Full Width */}
+          <CategoryDistribution data={data} />
 
           {/* Disability Breakdowns - Full Width */}
           <DisabilityBreakdown data={data} />

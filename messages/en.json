@@ -31,7 +31,8 @@
       "demographics": "Demographics",
       "genderDistribution": "Gender Distribution",
       "ageDistribution": "Age Group Distribution",
-      "dualExceptionalAge": "Dual Exceptional Age Distribution"
+      "dualExceptionalAge": "Dual Exceptional Age Distribution",
+      "satisfaction": "User Satisfaction"
     },
 
     "categories": {
@@ -77,6 +78,9 @@
     "mostCommon": "Most Common Disability",
     "topDisabilities": "Top 10 Disability Types (Among Disabled)",
     "topDisabilitiesDualExceptional": "Top 10 Disability Types (Among Dual Exceptional)",
+    "satisfied": "Satisfied",
+    "notSatisfied": "Not Satisfied",
+    "averageSatisfaction": "Average Satisfaction",
     "chartLabels": {
       "count": "Count",
       "percentage": "Percentage",

@@ -31,7 +31,8 @@
       "demographics": "التركيبة السكانية",
       "genderDistribution": "توزيع الجنس",
       "ageDistribution": "توزيع الفئات العمرية",
-      "dualExceptionalAge": "توزيع أعمار مزدوجي الاستثنائية"
+      "dualExceptionalAge": "توزيع أعمار مزدوجي الاستثنائية",
+      "satisfaction": "رضا المستخدمين"
     },
 
     "categories": {
@@ -77,6 +78,9 @@
     "mostCommon": "الإعاقة الأكثر شيوعاً",
     "topDisabilities": "أكثر 10 أنواع إعاقة (بين ذوي الإعاقة)",
     "topDisabilitiesDualExceptional": "أكثر 10 أنواع إعاقة (بين مزدوجي الاستثنائية)",
+    "satisfied": "راضون",
+    "notSatisfied": "غير راضين",
+    "averageSatisfaction": "متوسط الرضا",
     "chartLabels": {
       "count": "العدد",
       "percentage": "النسبة المئوية",
