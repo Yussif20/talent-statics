@@ -48,6 +48,11 @@ export default function StatisticsPage() {
 
     try {
       const response = await fetchStatistics(startDate, endDate);
+      console.log("=== API Response Data ===");
+      console.log(JSON.stringify(response, null, 2));
+      console.log("=== dualExceptionalBySurveyType ===");
+      console.log(response.talentDisability?.dualExceptionalBySurveyType);
+      console.log("=== End API Response ===");
       setData(response);
     } catch (err) {
       setError(err instanceof Error ? err.message : t("error"));

@@ -85,7 +85,8 @@
     "chartLabels": {
       "count": "Count",
       "percentage": "Percentage",
-      "participants": "Participants"
+      "participants": "Participants",
+      "total": "Total"
     }
   },
 

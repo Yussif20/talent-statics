@@ -85,7 +85,8 @@
     "chartLabels": {
       "count": "العدد",
       "percentage": "النسبة المئوية",
-      "participants": "المشاركون"
+      "participants": "المشاركون",
+      "total": "المجموع"
     }
   },
 
