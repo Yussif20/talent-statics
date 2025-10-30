@@ -21,6 +21,10 @@ export interface StatisticsResponse {
       count: number;
       percentage: number;
     };
+    dualExceptionalBySurveyType?: {
+      Parents: number;
+      Teachers: number;
+    };
     disabilityTypesAmongDisabled: Record<string, number>;
     disabilityTypesAmongDualExceptional: Record<string, number>;
     categories: {

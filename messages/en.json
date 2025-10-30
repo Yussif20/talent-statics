@@ -32,7 +32,8 @@
       "genderDistribution": "Gender Distribution",
       "ageDistribution": "Age Group Distribution",
       "dualExceptionalAge": "Dual Exceptional Age Distribution",
-      "satisfaction": "User Satisfaction"
+      "satisfaction": "User Satisfaction",
+      "dualExceptionalBySurveyType": "Dual Exceptional by Survey Type"
     },
 
     "categories": {

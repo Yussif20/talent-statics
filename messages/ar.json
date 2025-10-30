@@ -32,7 +32,8 @@
       "genderDistribution": "توزيع الجنس",
       "ageDistribution": "توزيع الفئات العمرية",
       "dualExceptionalAge": "توزيع أعمار مزدوجي الاستثنائية",
-      "satisfaction": "رضا المستخدمين"
+      "satisfaction": "رضا المستخدمين",
+      "dualExceptionalBySurveyType": "مزدوجو الاستثنائية حسب نوع الاستبيان"
     },
 
     "categories": {
@@ -64,7 +65,7 @@
       "Physical-Disability": "الإعاقة الجسدية",
       "Multiple-Disabilities": "إعاقات متعددة",
       "Mild-Intellectual-Disability": "الإعاقة الذهنية الخفيفة",
-      "Unified": "موحد",
+      "Unified": "توحد",
       "Learning-Diffculties": "صعوبات التعلم",
       "Mental": "عقلية",
       "Autism": "التوحد",

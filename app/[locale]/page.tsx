@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Activity, Users, TrendingUp, BarChart3, Sparkles } from "lucide-react";
+import {
+  Activity,
+  Users,
+  TrendingUp,
+  BarChart3,
+  Sparkles,
+  Settings,
+} from "lucide-react";
 import type { StatisticsResponse } from "@/types/statistics";
 import { fetchStatistics } from "@/lib/api";
 import LoadingState from "@/components/statistics/LoadingState";
@@ -17,6 +24,9 @@ import DualExceptionalDisabilities from "@/components/statistics/DualExceptional
 import DemographicsCharts from "@/components/statistics/DemographicsCharts";
 import AgeDistribution from "@/components/statistics/AgeDistribution";
 import SatisfactionChart from "@/components/statistics/SatisfactionChart";
+import DualExceptionalBySurveyType from "@/components/statistics/DualExceptionalBySurveyType";
+import LanguageSelector from "@/components/LanguageSelector";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function StatisticsPage() {
   const locale = useLocale();
@@ -29,6 +39,8 @@ export default function StatisticsPage() {
     startDate: string;
     endDate: string;
   } | null>(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const settingsRef = useRef<HTMLDivElement>(null);
 
   const fetchData = async (startDate?: string, endDate?: string) => {
     setLoading(true);
@@ -43,6 +55,23 @@ export default function StatisticsPage() {
       setLoading(false);
     }
   };
+
+  // Close settings dropdown on outside click
+  useEffect(() => {
+    if (!showSettings) return;
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        settingsRef.current &&
+        !settingsRef.current.contains(event.target as Node)
+      ) {
+        setShowSettings(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showSettings]);
 
   useEffect(() => {
     fetchData();
@@ -73,10 +102,57 @@ export default function StatisticsPage() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Page Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 relative">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/80 dark:bg-blue-900/40 backdrop-blur-sm text-blue-800 dark:text-blue-200 text-sm font-medium mb-6 border border-blue-200/50 dark:border-blue-700/50">
             <BarChart3 className="w-4 h-4 mr-2" />
             {t("sections.overview")}
+          </div>
+
+          {/* Settings Button - Positioned next to title */}
+          <div className="absolute top-0 right-0" ref={settingsRef}>
+            <button
+              className="p-3 rounded-xl bg-gray-50/80 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 dark:bg-gray-800/80 dark:hover:from-blue-900/30 dark:hover:to-purple-900/30 transition-all duration-300 transform hover:scale-110 shadow-sm hover:shadow-md border border-gray-200/50 dark:border-gray-700/50"
+              aria-label="Settings"
+              onClick={() => setShowSettings((v) => !v)}
+            >
+              <Settings
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                size={20}
+              />
+            </button>
+            {showSettings && (
+              <div
+                className={`absolute mt-4 max-w-[90vw] z-50 flex flex-col gap-6 p-6 rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-2xl bg-white/95 dark:bg-gray-900/95 animate-slide-up ${
+                  locale === "ar" ? "left-0" : "right-0"
+                }`}
+              >
+                {/* Enhanced Arrow */}
+                <span
+                  className={
+                    "absolute -top-2 " +
+                    (locale === "ar" ? "left-8" : "right-8") +
+                    " w-4 h-4 bg-white dark:bg-gray-900 rotate-45 border-t border-l border-gray-200/50 dark:border-gray-700/50 shadow-lg"
+                  }
+                  style={{ zIndex: 51 }}
+                />
+                <div className="w-full flex flex-col gap-2">
+                  <span className="block text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 tracking-wider mb-2 uppercase">
+                    {locale === "ar" ? "اللغة" : "Language"}
+                  </span>
+                  <div className="w-full flex bg-gray-50 dark:bg-gray-800 rounded-xl p-1">
+                    <LanguageSelector />
+                  </div>
+                </div>
+                <div className="w-full flex flex-col gap-2">
+                  <span className="block text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 tracking-wider mb-2 uppercase">
+                    {locale === "ar" ? "المظهر" : "Theme"}
+                  </span>
+                  <div className="w-full flex bg-gray-50 dark:bg-gray-800 rounded-xl p-1">
+                    <ThemeSwitcher />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -144,8 +220,11 @@ export default function StatisticsPage() {
             <SatisfactionChart data={data} />
           </div>
 
-          {/* Category Distribution - Full Width */}
-          <CategoryDistribution data={data} />
+          {/* Dual Exceptional by Survey Type and Category Distribution */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <DualExceptionalBySurveyType data={data} />
+            <CategoryDistribution data={data} />
+          </div>
 
           {/* Disability Breakdowns - Full Width */}
           <DisabilityBreakdown data={data} />
