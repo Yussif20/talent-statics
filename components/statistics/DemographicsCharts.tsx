@@ -46,9 +46,9 @@ export default function DemographicsCharts({ data }: DemographicsChartsProps) {
 
   const genderData = [
     {
-      category: t("demographics.overall"),
-      male: data.demographics.genderDistribution.male,
-      female: data.demographics.genderDistribution.female,
+      category: t("categories.dualExceptional"),
+      male: data.demographics.genderDistributionDualExceptional.male,
+      female: data.demographics.genderDistributionDualExceptional.female,
     },
     {
       category: t("demographics.talented"),
