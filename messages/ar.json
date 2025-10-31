@@ -77,11 +77,17 @@
     },
 
     "mostCommon": "الإعاقة الأكثر شيوعاً",
-    "topDisabilities": "أكثر 10 أنواع إعاقة (بين ذوي الإعاقة)",
-    "topDisabilitiesDualExceptional": "أكثر 10 أنواع إعاقة (بين مزدوجي الاستثنائية)",
+    "topDisabilities": "ترتيب الاعاقات حسب الأكثر شيوعا (بين ذوي الإعاقة)",
+    "topDisabilitiesDualExceptional": "ترتيب الاعاقات حسب الأكثر شيوعا (بين مزدوجي الاستثنائية)",
     "satisfied": "راضون",
     "notSatisfied": "غير راضين",
     "averageSatisfaction": "متوسط الرضا",
+    "satisfaction": {
+      "veryHappy": "راضٍ جداً",
+      "satisfied": "راضٍ",
+      "somewhat": "راضٍ إلى حد ما",
+      "dissatisfied": "غير راضٍ"
+    },
     "chartLabels": {
       "count": "العدد",
       "percentage": "النسبة المئوية",

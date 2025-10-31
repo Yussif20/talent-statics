@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
   PieLabelRenderProps,
 } from "recharts";
-import { getChartColors, getTooltipStyle } from "@/lib/chartConfig";
+import { getTooltipStyle } from "@/lib/chartConfig";
 import { StatisticsResponse } from "@/types/statistics";
 
 interface SatisfactionChartProps {
@@ -38,35 +38,36 @@ export default function SatisfactionChart({ data }: SatisfactionChartProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Process satisfaction distribution data
+  // Map satisfaction scores to labels
+  const satisfactionLabels: { [key: string]: string } = {
+    "100.00": t("satisfaction.veryHappy"),
+    "75.00": t("satisfaction.satisfied"),
+    "50.00": t("satisfaction.somewhat"),
+    "25.00": t("satisfaction.dissatisfied"),
+  };
+
+  const satisfactionColors: { [key: string]: string } = {
+    "100.00": "#10b981", // green-500
+    "75.00": "#3b82f6", // blue-500
+    "50.00": "#f59e0b", // amber-500
+    "25.00": "#ef4444", // red-500
+  };
+
+  // Process satisfaction distribution data with 4 categories
   const chartData = Object.entries(data.satisfaction.satisfactionDistribution)
-    .map(([score, count]) => {
-      const satisfactionScore = parseFloat(score);
-      // Consider scores > 0.5 as satisfied
-      const isSatisfied = satisfactionScore > 0.5;
-      return {
-        name: isSatisfied ? t("satisfied") : t("notSatisfied"),
-        value: count,
-        isSatisfied,
-      };
-    })
-    .reduce((acc: Array<{ name: string; value: number }>, curr) => {
-      const existing = acc.find((item) => item.name === curr.name);
-      if (existing) {
-        existing.value += curr.value;
-      } else {
-        acc.push({ name: curr.name, value: curr.value });
-      }
-      return acc;
-    }, []);
+    .map(([score, count]) => ({
+      name: satisfactionLabels[score] || score,
+      value: count,
+      score: parseFloat(score),
+      color: satisfactionColors[score] || "#6b7280",
+    }))
+    .sort((a, b) => b.score - a.score); // Sort from highest to lowest
 
   const total = chartData.reduce((sum, item) => sum + item.value, 0);
   const chartDataWithPercentage = chartData.map((item) => ({
     ...item,
-    percentage: ((item.value / total) * 100).toFixed(1),
+    percentage: total > 0 ? ((item.value / total) * 100).toFixed(1) : "0.0",
   }));
-
-  const colors = getChartColors(isDark);
 
   const renderCustomLabel = (props: PieLabelRenderProps) => {
     const { cx, cy, midAngle, innerRadius, outerRadius, percent } = props;
@@ -121,14 +122,7 @@ export default function SatisfactionChart({ data }: SatisfactionChartProps) {
               dataKey="value"
             >
               {chartDataWithPercentage.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={
-                    entry.name === t("satisfied")
-                      ? colors.success
-                      : colors.danger
-                  }
-                />
+                <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
             </Pie>
             <Tooltip

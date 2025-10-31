@@ -82,6 +82,12 @@
     "satisfied": "Satisfied",
     "notSatisfied": "Not Satisfied",
     "averageSatisfaction": "Average Satisfaction",
+    "satisfaction": {
+      "veryHappy": "Very Satisfied",
+      "satisfied": "Satisfied",
+      "somewhat": "Somewhat Satisfied",
+      "dissatisfied": "Dissatisfied"
+    },
     "chartLabels": {
       "count": "Count",
       "percentage": "Percentage",
