@@ -47,6 +47,10 @@ export interface StatisticsResponse {
       female: number;
       male: number;
     };
+    genderDistributionDualExceptional: {
+      female: number;
+      male: number;
+    };
     ageGroupDistribution: Record<string, number>;
     ageGroupDistributionDualExceptional: Record<string, number>;
   };
