@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-const API_BASE_URL = "https://virilan362-001-site1.rtempurl.com/api/Reports";
+const API_BASE_URL =
+  "https://talent1234bridge-001-site1.stempurl.com/api/Reports";
 
 export async function GET(request: Request) {
   try {
